@@ -1,5 +1,5 @@
 <?php
-include_once("../autoload.php");
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Incidencias\IncidenciaDB;
 use Incidencias\ClienteDB;
@@ -8,15 +8,14 @@ use Incidencias\VistaIncidencia;
 
 //Acción de cargar los libros en la página principal
 if (isset($_POST['action'])) {
-
     //Insertar incidencia
     if ($_POST['action'] == "newInc") {
         //Comprobar que el teléfono existe
-        $cliente = ClienteDB::getId($_POST['movil']);
+        $clienteId = ClienteDB::getId($_POST['movil']);
 
         //Comprobamos que el móvil es de un cliente
-        if (isset($cliente) && $cliente !== false) {
-            IncidenciaDB::insertInc($_POST['latitud'], $_POST['longitud'], $_POST['ciudad'], $_POST['direccion'], $_POST['etiqueta'], $_POST['descripcion'], $cliente->getId());
+        if (isset($clienteId) && $clienteId !== false) {
+            IncidenciaDB::insertInc($_POST['latitud'], $_POST['longitud'], $_POST['ciudad'], $_POST['direccion'], $_POST['etiqueta'], $_POST['descripcion'], $clienteId);
             echo "Incidencia insertada correctamente";
         } else {
             echo "Teléfono móvil no encontrado, regístrese y pruebe después.";

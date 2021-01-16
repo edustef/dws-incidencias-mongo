@@ -1,0 +1,17 @@
+{
+    "name": "eduar/dws-incidencias-mongo",
+    "authors": [
+        {
+            "name": "edustef",
+            "email": "eduardstefan290@gmail.com"
+        }
+    ],
+    "require": {
+        "mongodb/mongodb": "^1.8"
+    },
+    "autoload": {
+        "psr-4": {
+          "Incidencias\\": "Models"
+        }
+      }
+}
