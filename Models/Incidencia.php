@@ -1,5 +1,5 @@
 <?php
-namespace Incidencias;
+namespace Incidencias\Models;
 
  class Incidencia {
 
@@ -211,7 +211,3 @@ namespace Incidencias;
     }
 
  }
-
-
-
-?>

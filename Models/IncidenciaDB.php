@@ -1,10 +1,6 @@
 <?php
 
-namespace Incidencias;
-
-use Incidencias\Incidencia;
-use Incidencias\ConexionDB;
-use MongoDB\Collection;
+namespace Incidencias\Models;
 
 class IncidenciaDB
 {

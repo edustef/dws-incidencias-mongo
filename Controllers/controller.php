@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Incidencias\IncidenciaDB;
-use Incidencias\ClienteDB;
-use Incidencias\VistaCliente;
-use Incidencias\VistaIncidencia;
+use Incidencias\Models\IncidenciaDB;
+use Incidencias\Models\ClienteDB;
+use Incidencias\Views\VistaCliente;
+use Incidencias\Views\VistaIncidencia;
 
 //Acción de cargar los libros en la página principal
 if (isset($_POST['action'])) {

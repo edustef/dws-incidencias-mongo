@@ -1,8 +1,6 @@
 <?php
 
-namespace Incidencias;
-
-use Incidencias\ConexionDB;
+namespace Incidencias\Models;
 
 class ClienteDB
 {
@@ -10,22 +8,8 @@ class ClienteDB
     //Insertar incidencia
     public static function newCliente($post)
     {
-
         //Quitamos action de $post si se manda con Ajax una acción
         array_pop($post);
-
-        $consulta = "INSERT INTO clientes (";
-        foreach ($post as $key => $value) {
-            $consulta .= $key . ", ";
-        }
-        $consulta = substr($consulta, 0, -2); //Quitamos última coma y el espacio
-        $consulta .= ") VALUES (";
-        foreach ($post as $key => $value) {
-            $consulta .= ":" . $key . ", ";
-        }
-        $consulta = substr($consulta, 0, -2); //Quitamos última coma y el espacio
-        $consulta .= ");";
-
         $conexion = ConexionDB::conectar("incidencias");
 
         ConexionDB::desconectar();
@@ -34,6 +18,7 @@ class ClienteDB
 
     public static function getId($movil)
     {
+        $conexion = ConexionDB::conectar("incidencias");
 
         ConexionDB::desconectar();
         return '1';
@@ -42,6 +27,7 @@ class ClienteDB
     public static function getClientes()
     {
         $resultado = [];
+        $conexion = ConexionDB::conectar("incidencias");
 
         ConexionDB::desconectar();
         return $resultado;
@@ -51,6 +37,7 @@ class ClienteDB
     //Borrar cliente
     public static function deleteCliente($id)
     {
+        $conexion = ConexionDB::conectar("incidencias");
         ConexionDB::desconectar();
     }
 }

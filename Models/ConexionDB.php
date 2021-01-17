@@ -1,6 +1,6 @@
 <?php
 
-namespace Incidencias;
+namespace Incidencias\Models;
 
 use \MongoDB;
 
@@ -20,16 +20,3 @@ class ConexionDB
         self::$conexion = null;
     }
 }
-
-/*
-$consulta = "SELECT * FROM empleados";
-
-$conexion = ConexionDB::conectar("2daw");
-
-$stmt = $conexion->prepare($consulta);
-$stmt->execute();
-$count = $stmt->rowCount();
-echo $count;
-
-ConexionDB::desconectar();
-*/

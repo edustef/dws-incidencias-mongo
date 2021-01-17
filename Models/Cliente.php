@@ -1,5 +1,5 @@
 <?php
-namespace Incidencias;
+namespace Incidencias\Models;
 
  class Cliente {
 
@@ -10,8 +10,6 @@ namespace Incidencias;
     private $movil;
     private $dni;
 
-
-
     //Constructor
     public function __construct($id=0,$nombre="", $direccion="", $localidad="", $movil="", $dni="") {
         $this->id = $id;
@@ -21,9 +19,6 @@ namespace Incidencias;
         $this->movil = $movil;
         $this->dni = $dni;      
     }
-    
-    
-
 
     /**
      * Get the value of id
@@ -145,7 +140,3 @@ namespace Incidencias;
         return $this;
     }
  }
-
-
-
-?>
