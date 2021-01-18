@@ -1,7 +1,7 @@
 # dws-incidencias-mongo
 
 1. run `docker-compose up` from root folder
-2. open php container shell
+2. open the php container in interactive shell
 2. cd into /app and run composer install
 2. open on localhost:80
 
