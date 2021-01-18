@@ -295,7 +295,7 @@
 
     //BOTÓN CREAR INCIDENCIA Y CREAR CLIENTE
     document.getElementById("contenido").addEventListener("click", async function(e) {
-      if (e.target.closest("button[action=insertinc]")) {
+      if (e.target.closest("button[action=insertincidencia]")) {
         document.getElementById("formincidencia").addEventListener("submit", async function(e2) {
           e2.preventDefault(); //Para que no envíe el formulario antes
 

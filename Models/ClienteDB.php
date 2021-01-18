@@ -4,32 +4,45 @@ namespace Incidencias\Models;
 
 class ClienteDB
 {
-
     //Insertar incidencia
     public static function newCliente($post)
     {
         //Quitamos action de $post si se manda con Ajax una acción
         array_pop($post);
-        $conexion = ConexionDB::conectar("incidencias");
+        $collection = self::conectar();
+        $post['id'] = $collection->count() + 1;
 
-        ConexionDB::desconectar();
+        $collection->insertOne($post);
+
+        self::desconectar();
     }
 
 
     public static function getId($movil)
     {
-        $conexion = ConexionDB::conectar("incidencias");
+        $collection = self::conectar();
+        $cliente = $collection->findOne(['movil' => $movil]);
 
-        ConexionDB::desconectar();
-        return '1';
+        self::desconectar();
+        if (isset($cliente)) {
+            return $cliente['id'];
+        }
+
+        return false;
     }
 
     public static function getClientes()
     {
-        $resultado = [];
-        $conexion = ConexionDB::conectar("incidencias");
 
-        ConexionDB::desconectar();
+        $resultado = [];
+        $collection = self::conectar();
+        $cursor = $collection->find();
+
+        foreach ($cursor as $cliente) {
+            $resultado[] = new Cliente($cliente['id'], $cliente['nombre'], $cliente['direccion'], $cliente['localidad'], $cliente['movil'], $cliente['dni']);
+        }
+
+        self::desconectar();
         return $resultado;
     }
 
@@ -37,7 +50,19 @@ class ClienteDB
     //Borrar cliente
     public static function deleteCliente($id)
     {
-        $conexion = ConexionDB::conectar("incidencias");
+        $collection = self::conectar();
+        $collection->deleteOne(['id' => intval($id)]);
+
+        self::desconectar();
+    }
+
+    public static function conectar()
+    {
+        return ConexionDB::conectar('incidencias', 'clientes');
+    }
+
+    public static function desconectar()
+    {
         ConexionDB::desconectar();
     }
 }

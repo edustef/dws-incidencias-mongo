@@ -72,6 +72,7 @@ use Incidencias\ConexionDB;
 							<button type="submit" class="btn btn-primary" action='insert'>Nueva</button>
 						</div>
 					</div>
+					<input type="hidden" name="estado" value="abierta">
 				</form>
 
 			</div>

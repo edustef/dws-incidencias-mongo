@@ -14,8 +14,10 @@ if (isset($_POST['action'])) {
         $clienteId = ClienteDB::getId($_POST['movil']);
 
         //Comprobamos que el móvil es de un cliente
-        if (isset($clienteId) && $clienteId !== false) {
-            IncidenciaDB::insertInc($_POST['latitud'], $_POST['longitud'], $_POST['ciudad'], $_POST['direccion'], $_POST['etiqueta'], $_POST['descripcion'], $clienteId);
+        if ($clienteId !== false) {
+            $post = $_POST;
+            $post['id_cliente'] = $clienteId;
+            IncidenciaDB::newIncidencia($post);
             echo "Incidencia insertada correctamente";
         } else {
             echo "Teléfono móvil no encontrado, regístrese y pruebe después.";

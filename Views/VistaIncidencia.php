@@ -147,7 +147,7 @@ class VistaIncidencia
               </div>
               <!-- /.card-body -->
               <div class="card-footer">
-                <button type="submit" class="btn btn-info" action='insertinc'>Crear</button>
+                <button type="submit" class="btn btn-info" action='insertincidencia'>Crear</button>
               </div>
               <!-- /.card-footer -->
             </form>
