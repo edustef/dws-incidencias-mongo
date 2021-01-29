@@ -1,12 +1,6 @@
 <?php
-
-use Incidencias\ClienteDB;
-
 session_start();
 require_once __DIR__ . '/vendor/autoload.php';
-
-use Incidencias\ConexionDB;
-
 ?>
 
 <!DOCTYPE html>
